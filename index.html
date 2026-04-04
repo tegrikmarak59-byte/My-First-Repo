@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusFloPRO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <div class="logo">Campus<span>Flo</span>PRO</div>
+
+    <div style="position: relative;">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search faculty, building..." autocomplete="off">
+        <button onclick="doSearch()">SEARCH</button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="header-right">
+    </div>
+  </div>
+
+  <!-- ── MAIN ── -->
+  <div class="main">
+
+    <!-- MAP -->
+    <div class="map-wrap" id="mapWrap">
+      <img src="7kyFC.jpg" alt="Campus Map">
+
+      <!-- Hotspot: Lecture Hall -->
+      <div class="hotspot" style="left:26%;top:62%;" id="hs-LH" onclick="openBuilding('LH')">
+        <div class="hotspot-ring" style="width:52px;height:52px;"></div>
+        <div class="hotspot-label">Lecture Hall</div>
+      </div>
+
+      <!-- Hotspot: Library -->
+      <div class="hotspot" style="left:33%;top:70%;" id="hs-LB" onclick="openBuilding('LB')">
+        <div class="hotspot-ring" style="width:38px;height:38px;"></div>
+        <div class="hotspot-label">Library</div>
+      </div>
+
+      <!-- Hotspot: Academic Complex -->
+      <div class="hotspot" style="left:29%;top:78%;" id="hs-AC" onclick="openBuilding('AC')">
+        <div class="hotspot-ring" style="width:46px;height:46px;"></div>
+        <div class="hotspot-label">Academic Complex</div>
+      </div>
+
+      <!-- Hotspot: A Block -->
+      <div class="hotspot" style="left:41%;top:83%;" id="hs-A" onclick="openBuilding('A')">
+        <div class="hotspot-ring" style="width:36px;height:36px;"></div>
+        <div class="hotspot-label">A Block</div>
+      </div>
+
+      <!-- Hotspot: B Block -->
+      <div class="hotspot" style="left:36%;top:88%;" id="hs-B" onclick="openBuilding('B')">
+        <div class="hotspot-ring" style="width:36px;height:36px;"></div>
+        <div class="hotspot-label">B Block</div>
+      </div>
+
+      <!-- Hotspot: C Block -->
+      <div class="hotspot" style="left:22%;top:75%;" id="hs-C" onclick="openBuilding('C')">
+        <div class="hotspot-ring" style="width:36px;height:36px;"></div>
+        <div class="hotspot-label">C Block</div>
+      </div>
+
+      <!-- Hotspot: D Block -->
+      <div class="hotspot" style="left:62%;top:72%;" id="hs-D" onclick="openBuilding('D')">
+        <div class="hotspot-ring" style="width:44px;height:44px;"></div>
+        <div class="hotspot-label">D Block</div>
+      </div>
+
+      <!-- Building Info Popup -->
+      <div class="building-popup" id="buildingPopup">
+        <div class="bp-header">
+          <div class="bp-name" id="bp-name"></div>
+          <div class="bp-close" onclick="closeBuilding()">✕</div>
+        </div>
+        <div class="bp-body" id="bp-body"></div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- Events -->
+      <div class="sb-section" style="flex: 0 0 auto; max-height: 48%;">
+        <div class="sb-title">Events</div>
+        <div class="event-card">
+          <div class="event-name">Hackathon 2025</div>
+          <div class="event-meta">5th Apr · <span class="event-loc">Auditorium</span></div>
+        </div>
+        <div class="event-card">
+          <div class="event-name">Coding Contest</div>
+          <div class="event-meta">6th Apr · <span class="event-loc">Lab 2, A Block</span></div>
+        </div>
+        <div class="event-card">
+          <div class="event-name">Sports Meet</div>
+          <div class="event-meta">7th Apr · <span class="event-loc">Ground</span></div>
+        </div>
+        <div class="event-card">
+          <div class="event-name">Tech Symposium</div>
+          <div class="event-meta">10th Apr · <span class="event-loc">Seminar Hall</span></div>
+        </div>
+      </div>
+
+      <!-- Faculty List (rendered by JS) -->
+      <div class="sb-section">
+        <div class="sb-title">Faculty</div>
+        <div id="facultyList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FACULTY DETAIL OVERLAY ── -->
+  <div class="fac-detail-overlay" id="facDetailOverlay" onclick="closeFacDetail(event)">
+    <div class="fac-detail-box">
+      <div class="fdb-header">
+        <div>
+          <div class="fdb-name" id="fdb-name"></div>
+          <div class="fdb-dept" id="fdb-dept"></div>
+        </div>
+        <div class="fdb-close" onclick="closeFacDetailDirect()">✕</div>
+      </div>
+      <div class="fdb-body" id="fdb-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
